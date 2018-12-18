@@ -1,13 +1,3 @@
-/**
- * Created with IntelliJ IDEA.
- * User: camman3d
- * Date: 4/30/13
- * Time: 10:01 AM
- * To change this template use File | Settings | File Templates.
- */
-(function(Ayamel) {
-    "use strict";
-
     //taken from VTT codec
     function generateTimeCode(time){
         var seconds = Math.floor(time),
@@ -21,24 +11,22 @@
         return text+(mm>9?mm:"0"+mm)+":"+(ss>9?ss:"0"+ss);//+"."+(ms>99?ms:(ms>9?"0"+ms:"00"+ms));
     }
 
-    function TimeCode(args) {
-        var _this = this,
-            duration = 0, currentTime = 0,
-            durationText = "00:00", currentTimeText = "00:00",
-            element = document.createElement('div');
+class TimeCode {
+    constructor(args) {
+        var _this = this, duration = 0,
+        currentTime = 0,
+        durationText = "00:00",
+        currentTimeText = "00:00",
+        element = document.createElement('div');
 
         element.classList.add("timeCode");
         element.title = "timecode";
-
         function updateText() {
             element.textContent = currentTimeText + " / " + durationText;
         }
-
         updateText();
-
         this.element = element;
         args.holder.appendChild(element);
-
         Object.defineProperties(this, {
             currentTime: {
                 enumerable: true,
@@ -66,6 +54,11 @@
             }
         });
     }
+}
 
-    Ayamel.controls.timeCode = TimeCode;
-}(Ayamel));
+export default {
+    register: function(ayamel) {
+        ayamel.controls.timeCode = TimeCode;
+    }
+};
+
