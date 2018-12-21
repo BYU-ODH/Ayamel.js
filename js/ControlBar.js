@@ -74,11 +74,8 @@
 
 		function hideControls(){
 			if(control_timeout){ clearTimeout(control_timeout); }
-			if(!ayamelPlayer.isFullScreen){
-				element.style.opacity = 1;
-				control_timeout = 0;
-				return;
-			}
+			element.style.opacity = 1;
+			control_timeout = 0;
 			control_timeout = setTimeout(function(){
 				element.style.opacity = 0;
 			}, 2000);
