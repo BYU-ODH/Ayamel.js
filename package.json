@@ -1,6 +1,6 @@
 {
   "name": "yvideojs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "yvideo libraries and plugins",
   "main": "js/Ayamel.js",
   "directories": {
