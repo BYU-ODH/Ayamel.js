@@ -281,17 +281,23 @@
 }
 
 .ayamelPlayer .captions .icon {
+	display: inline-block;
+	vertical-align: top;
 	position: relative;
-	height: 16px;
-	width: 20px;
-	background: url("../images/captions.png") center no-repeat;
+	width: 25px;
+	height: 25px;
+	background: url("../images/cc.svg") center no-repeat;
+	top: -3px;
 }
 
 .ayamelPlayer .annotations .icon {
+	display: inline-block;
+	vertical-align: top;
 	position: relative;
-	height: 16px;
-	width: 20px;
+	width: 25px;
+	height: 25px;
 	background: url("../images/annotations.png") center no-repeat;
+	top: -3px;
 }
 
 .ayamelPlayer .menu {
