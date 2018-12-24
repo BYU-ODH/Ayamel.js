@@ -29,7 +29,7 @@
 
 .ayamelPlayer .sidebar {
 	position: absolute;
-	height: 88%;
+	height: 100%;
 	width: 0;
 	margin: 0;
 	padding: 0;
@@ -70,14 +70,6 @@
 	opacity: 1;
 }
 
-.ayamelPlayer .leftBar .sidebarHeads {
-	transform: rotateZ(-90deg) translateY(-20px) translateX(-20px);
-}
-
-.ayamelPlayer .rightBar .sidebarHeads {
-	transform: rotateZ(90deg) translateY(20px) translateX(-20px);
-}
-
 .ayamelPlayer .rightBar .tabHead {
 	border-radius: 0 0 5px 5px;
 }
@@ -112,7 +104,7 @@
 	height: 100%;
 	overflow: hidden;
 	overflow-wrap: break-word;
-	padding: 2px;
+	padding: 2px 2px 70px 2px;
 }
 
 .ayamelPlayer .progressBar {
