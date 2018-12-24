@@ -29,7 +29,7 @@
 
 .ayamelPlayer .sidebar {
 	position: absolute;
-	height: 100%;
+	height: 88%;
 	width: 0;
 	margin: 0;
 	padding: 0;
@@ -53,6 +53,7 @@
 	transform-origin: 0 100%;
 	margin: 0;
 	white-space: nowrap;
+	padding: 0;
 }
 
 .ayamelPlayer .tabHead {
