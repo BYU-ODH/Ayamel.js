@@ -13,6 +13,7 @@ const JS_DIR = 'js/'
 
 const PLAYER_JS = 'player.min.js'
 const PLAYER_CSS = 'player.min.css'
+const YVIDEO_JS = 'yvideo.min.js'
 
 gulp.task('playercss', function(){
   return gulp.src(player_css, {base: CSS_DIR})
@@ -34,8 +35,17 @@ gulp.task('clean', function() {
   return del([BUILD_DIR])
 })
 
+gulp.task('js', function() {
+  return gulp.src(JS_DIR+'*.js')
+    .pipe(sourcemaps.init())
+    .pipe(concat(YVIDEO_JS))
+    .pipe(uglify())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(JS_BUILD_DIR))
+})
+
 gulp.task('player', gulp.series('playerjs', 'playercss'))
-gulp.task('default', gulp.series('player'))
+gulp.task('default', gulp.series('js', 'playercss'))
 
 const player_css = "css/player.css"
 
