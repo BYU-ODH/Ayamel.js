@@ -13,7 +13,11 @@ const JS_DIR = 'js/'
 
 const PLAYER_JS = 'player.min.js'
 const PLAYER_CSS = 'player.min.css'
-const YVIDEO_JS = 'yvideo.min.js'
+const YVIDEO_JS = 'yvideoplayer.min.js'
+const PLUGINS_JS = 'mediaplugins.min.js'
+const CONTROLS_JS = 'playercontrols.min.js'
+
+const player_css = "css/player.css"
 
 gulp.task('playercss', function(){
   return gulp.src(player_css, {base: CSS_DIR})
@@ -22,20 +26,11 @@ gulp.task('playercss', function(){
     .pipe(gulp.dest(CSS_BUILD_DIR))
 });
 
-gulp.task('playerjs', function(){
-  return gulp.src(player_scripts, {base: JS_DIR})
-    .pipe(sourcemaps.init())
-    .pipe(concat(PLAYER_JS))
-    .pipe(uglify())
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest(JS_BUILD_DIR))
-});
-
 gulp.task('clean', function() {
   return del([BUILD_DIR])
 })
 
-gulp.task('js', function() {
+gulp.task('yvideoplayer', function() {
   return gulp.src(JS_DIR+'*.js')
     .pipe(sourcemaps.init())
     .pipe(concat(YVIDEO_JS))
@@ -44,59 +39,22 @@ gulp.task('js', function() {
     .pipe(gulp.dest(JS_BUILD_DIR))
 })
 
-gulp.task('player', gulp.series('playerjs', 'playercss'))
-gulp.task('default', gulp.series('js', 'playercss'))
+gulp.task('mediaplugins', function() {
+  return gulp.src(JS_DIR+'plugins/*.js')
+    .pipe(sourcemaps.init())
+    .pipe(concat(PLUGINS_JS))
+    .pipe(uglify())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(JS_BUILD_DIR))
+})
 
-const player_css = "css/player.css"
+gulp.task('playercontrols', function() {
+  return gulp.src(JS_DIR+'controls/*.js')
+    .pipe(sourcemaps.init())
+    .pipe(concat(CONTROLS_JS))
+    .pipe(uglify())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(JS_BUILD_DIR))
+})
 
-const player_scripts = [
-  "js/Ayamel.js",
-  "js/Resource.js",
-  "js/swfobject.js",
-  "js/Ayamel.js",
-  "js/Text.js",
-  "js/annotator.js",
-  "js/Translator.js",
-  "js/AnimationHandler.js",
-  "js/AyamelPlayer.js",
-  "js/CaptionsTraversal.js",
-  "js/CaptionTrackLoader.js",
-  "js/ControlBar.js",
-  "js/FullScreenHandler.js",
-  "js/KeyBinder.js",
-  "js/LangCodes.js",
-  "js/MediaPlayer.js",
-  "js/Sidebar.js",
-  "js/SidebarTab.js",
-  "js/SoundManager.js",
-  "js/Mobile.js",
-  "js/ProgressBar.js",
-  "js/controls/CaptionsMenu.js",
-  "js/controls/AnnotationsMenu.js",
-  "js/controls/FullScreenButton.js",
-  "js/controls/LastCaptionButton.js",
-  "js/controls/PlayButton.js",
-  "js/controls/RateSlider.js",
-  "js/controls/SliderBar.js",
-  "js/controls/TimeCode.js",
-  "js/controls/VolumeSlider.js",
-  "js/plugins/flowplayer/flowplayer-3.2.12.min.js",
-  "js/plugins/markdown/markdown.min.js",
-  "js/plugins/hls/HLSPlayer.min.js",
-  "js/plugins/dash/dash.all.js",
-  "js/plugins/basicImage.js",
-  "js/plugins/html5Audio.js",
-  "js/plugins/html5Video.js",
-  "js/plugins/flashVideo.js",
-  "js/plugins/HLSVideo.js",
-  "js/plugins/dashVideo.js",
-  "js/plugins/brightcove.js",
-  "js/plugins/scola.js",
-  "js/plugins/youtube.js",
-  "js/plugins/ooyala.js",
-  "js/plugins/vimeo.js",
-  "js/plugins/transcriptText.js",
-  "js/plugins/markdownText.js",
-  "js/plugins/plainText.js",
-  "js/plugins/timedFallback.js"
-]
+gulp.task('default', gulp.series('yvideoplayer', 'mediaplugins', 'playercontrols', 'playercss'))
