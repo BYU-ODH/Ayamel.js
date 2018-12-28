@@ -37,28 +37,22 @@ gulp.task('clean', function() {
 
 gulp.task('yvideoplayer', function() {
   return gulp.src(player_js, {base: JS_DIR})
-    .pipe(sourcemaps.init())
     .pipe(concat(YVIDEO_JS))
     .pipe(uglify())
-    .pipe(sourcemaps.write())
     .pipe(gulp.dest(JS_BUILD_DIR))
 })
 
 gulp.task('mediaplugins', function() {
   return gulp.src(JS_DIR+'plugins/*.js')
-    .pipe(sourcemaps.init())
     .pipe(concat(PLUGINS_JS))
     .pipe(uglify())
-    .pipe(sourcemaps.write())
     .pipe(gulp.dest(JS_BUILD_DIR))
 })
 
 gulp.task('playercontrols', function() {
   return gulp.src(JS_DIR+'controls/*.js')
-    .pipe(sourcemaps.init())
     .pipe(concat(CONTROLS_JS))
     .pipe(uglify())
-    .pipe(sourcemaps.write())
     .pipe(gulp.dest(JS_BUILD_DIR))
 })
 
