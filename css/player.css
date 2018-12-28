@@ -70,14 +70,6 @@
 	opacity: 1;
 }
 
-.ayamelPlayer .rightBar .tabHead {
-	border-radius: 0 0 5px 5px;
-}
-
-.ayamelPlayer .leftBar .tabHead {
-	border-radius: 5px 5px 0 0;
-}
-
 .ayamelPlayer .rightBar .tabHead.selected {
 	border-top: none;
 }
@@ -108,8 +100,10 @@
 }
 
 .ayamelPlayer .progressBar {
+	width: 90%;
+	margin: auto;
 	height: 5px;
-	background: #c4c4c4;
+	background: #eaeaea;
 	position: relative;
 }
 
@@ -121,7 +115,7 @@
 	margin: 7px 0;
 	padding: 0 0 2px 7px;
 	position: relative;
-	background: #c4c4c4;
+	background: #eaeaea;
 }
 
 .ayamelPlayer .progressLevel {
@@ -181,6 +175,9 @@
 	position: relative;
 	cursor: default;
 	top: -45px;
+	-moz-box-shadow: inset 0px -100px 100px -100px #000;
+	-webkit-box-shadow: inset 0px -100px 100px -100px #000;
+	box-shadow: inset 0px -100px 100px -100px #000;
 }
 
 .controlBar .widgets {
@@ -188,9 +185,6 @@
 	height: 40px;
 	display: block;
 	position: relative;
-	-moz-box-shadow: inset 0px -100px 100px -100px #000;
-	-webkit-box-shadow: inset 0px -100px 100px -100px #000;
-	box-shadow: inset 0px -100px 100px -100px #000;
 }
 
 .controlBar .widgets > div {
