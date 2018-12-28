@@ -265,22 +265,17 @@
 	white-space: nowrap;
 }
 
-.ayamelPlayer .captions .icon {
-	display: inline-block;
-	vertical-align: top;
-	position: relative;
-	width: 25px;
-	height: 25px;
+.ayamelPlayer .sideToggle {
+	background: url("../images/sideToggle.svg") center no-repeat;
+	top: -3px;
+}
+
+.ayamelPlayer .captions {
 	background: url("../images/cc.svg") center no-repeat;
 	top: -3px;
 }
 
-.ayamelPlayer .annotations .icon {
-	display: inline-block;
-	vertical-align: top;
-	position: relative;
-	width: 25px;
-	height: 25px;
+.ayamelPlayer .annotations {
 	background: url("../images/annotations.png") center no-repeat;
 	top: -3px;
 }

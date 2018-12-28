@@ -3,7 +3,7 @@
 
 	var template =
 		'<div class="control button annotations">\
-			<div class="icon" title="Annotation Menu"></div>\
+			<div class="button" title="Annotation Menu"></div>\
 			<div class="menu">\
 				<div class="menuTipDark"></div>\
 				<div class="menuTip"></div>\

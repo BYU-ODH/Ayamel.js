@@ -24,7 +24,7 @@
 	function ControlBar(args) {
 		var ayamelPlayer = args.ayamelPlayer,
 			control_timeout = 0,
-			controlLists = args.components || {left:["play", "volume", "captions", "annotations"], right:["rate", "fullScreen", "timeCode"]},
+			controlLists = args.components || {left:["play", "volume", "captions", "annotations"], right:["rate", "fullScreen", "sideToggle", "timeCode"]},
 			components = {}, progressBar, timeCode,
 			currentTime = 0, duration = 0,
 			element = document.createElement('div');
