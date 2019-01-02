@@ -8,6 +8,11 @@
 
         this.element = element;
         args.holder.appendChild(element);
+
+        element.addEventListener('click',function (e) {
+        	e.stopPropagation();
+			element.dispatchEvent(new CustomEvent("showSidebar",{bubbles:true,cancelable:true,detail:{}}));
+        },false);
 	}
 
 	Ayamel.controls.sideToggle = SideToggle;

@@ -30,6 +30,7 @@
 			return pluginSupport;
 		},
 		sideToggle: function(player, pluginSupport){
+			// Not sure if this is the best way to do this
 			return pluginSupport || true;
 		}
 	};
