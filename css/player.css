@@ -103,7 +103,7 @@
 }
 
 .ayamelPlayer .progressBar {
-	width: 90%;
+	width: 98%;
 	margin: auto;
 	height: 5px;
 	background: #eaeaea;
@@ -253,7 +253,7 @@
 }
 
 .ayamelPlayer .volume.muted .mute {
-	background: url("../images/sound.svg") center no-repeat;
+	background: url("../images/mute.svg") center no-repeat;
 	top: -3px;
 }
 
@@ -262,7 +262,6 @@
 }
 
 .ayamelPlayer .timeCode {
-	width: 73px;
 	font-size: 12px;
 	font-style: normal;
 	font-weight: normal;
@@ -276,7 +275,7 @@
 	vertical-align: middle;
 	white-space: nowrap;
 	position: relative;
-	top: 3px;
+	top: 6px;
 }
 
 .ayamelPlayer .sideToggle {
