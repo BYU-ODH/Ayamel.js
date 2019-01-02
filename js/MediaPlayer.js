@@ -30,7 +30,8 @@
 			return pluginSupport;
 		},
 		sideToggle: function(player, pluginSupport){
-			// Not sure if this is the best way to do this
+			// Need to fix this since we only want it 
+			// to show up if the right sidebar exists
 			return pluginSupport || true;
 		}
 	};

@@ -1,5 +1,8 @@
 .ayamelPlayer {
-	font-family: 'Source Sans Pro', sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	line-height: normal;
+	font-family: 'Roboto';
 	user-select: none;
 }
 
@@ -224,29 +227,34 @@
 	width: 25px;
 	height: 25px;
 	color: white;
-	font-family: FontAwesome;
 	text-align: center;
 	position: relative;
 }
 
-.ayamelPlayer .button.play.paused:before {
-	content: "\f04b";
+.ayamelPlayer .button.play.paused {
+	background: url("../images/play.svg") center no-repeat;
+	top: -3px;
 }
 
-.ayamelPlayer .button.play:not(.paused):before {
-	content: "\f04c";
+.ayamelPlayer .button.play:not(.paused) {
+	background: url("../images/pause.svg") center no-repeat;
+	top: -3px;
+	
 }
 
-.ayamelPlayer .rate .speed:before {
-	content: "\f0e4";
+.ayamelPlayer .rate .speed {
+	background: url("../images/speed.svg") center no-repeat;
+	top: -3px;
 }
 
-.ayamelPlayer .volume:not(.muted) .mute:before {
-	content: "\f028";
+.ayamelPlayer .volume:not(.muted) .mute {
+	background: url("../images/sound.svg") center no-repeat;
+	top: -3px;
 }
 
-.ayamelPlayer .volume.muted .mute:before {
-	content: "\f026";
+.ayamelPlayer .volume.muted .mute {
+	background: url("../images/sound.svg") center no-repeat;
+	top: -3px;
 }
 
 .ayamelPlayer .volume.muted .sliderContainer {
@@ -256,6 +264,10 @@
 .ayamelPlayer .timeCode {
 	width: 73px;
 	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	line-height: normal;
+	font-family: 'Roboto';
 	color: white;
 	display: inline-block;
 	overflow: hidden;
@@ -263,6 +275,8 @@
 	text-overflow: ellipsis;
 	vertical-align: middle;
 	white-space: nowrap;
+	position: relative;
+	top: 3px;
 }
 
 .ayamelPlayer .sideToggle {
@@ -276,7 +290,7 @@
 }
 
 .ayamelPlayer .annotations {
-	background: url("../images/annotations.png") center no-repeat;
+	background: url("../images/annotations.svg") center no-repeat;
 	top: -3px;
 }
 
@@ -333,60 +347,53 @@
 }
 
 .ayamelPlayer .menuEntry.active {
-	background: #EE5799;
-}
-
-.ayamelPlayer .menuEntry.active:before {
-	font-family: FontAwesome;
-	content: "\f00c";
-	margin-right: 5px;
+	background: #0057B8;
 }
 
 .ayamelPlayer .menuEntry {
 	padding: 5px 0;
 	cursor: pointer;
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	line-height: normal;
+	font-family: 'Roboto';
 }
 
 .ayamelPlayer .menuEntry:hover {
-	background: #2184AE;
+	background: #0582CA;
 }
 
 .ayamelPlayer .noOptions {
 	font-style: italic;
 }
 
-.ayamelPlayer .button.fullScreen.active:before {
-	content: "\f066";
+.ayamelPlayer .button.fullScreen.active {
+	background: url("../images/fullscreenCancel.svg") center no-repeat;
+	top: -3px;
 }
 
-.ayamelPlayer .button.fullScreen:not(.active):before {
-	content: "\f0b2";
+.ayamelPlayer .button.fullScreen:not(.active) {
+	background: url("../images/fullscreen.svg") center no-repeat;
+	top: -3px;
 }
 
-.ayamelPlayer .button.lastCaption:before {
-	content: "\f048";
+.ayamelPlayer .button.lastCaption {
+	background: url("../images/rewind.svg") center no-repeat;
+	top: -3px;
 }
 
-.ayamelPlayer .button.nextCaption:before {
-	content: "\f051";
+.ayamelPlayer .button.nextCaption {
+	background: url("../images/forward.svg") center no-repeat;
+	top: -3px;
 }
 
 .ayamelPlayer .transcriptCue:hover {
-	background: rgba(33, 132, 174, 0.5);
+	background: #0582CA;
 	color: white;
 }
 
 .ayamelPlayer .transcriptCue {
-	border-radius: 5px;
 	padding: 0 6px;
-
-	-webkit-touch-callout: initial;
-	-webkit-user-select: initial;
-	-khtml-user-select: initial;
-	-moz-user-select: initial;
-	-ms-user-select: initial;
-	user-select: initial;
 }
 
 .ayamelPlayer .transcriptCue.rtl {
@@ -394,12 +401,12 @@
 }
 
 .ayamelPlayer .transcriptCue.active {
-	background: #ffffaa;
+	background: #0057B8;
+	color: white;
 }
 
 .ayamelPlayer .transcriptCue.active:hover {
-	background: #ffff00;
-	color: black;
+	background: #0582CA;
 }
 
 /* Full Screen */
