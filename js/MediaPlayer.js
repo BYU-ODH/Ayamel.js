@@ -28,6 +28,9 @@
 		},
 		volume: function(player, pluginSupport){
 			return pluginSupport;
+		},
+		sideToggle: function(player, pluginSupport){
+			return pluginSupport;
 		}
 	};
 

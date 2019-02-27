@@ -4,9 +4,7 @@
 	function renderEmptySidebar(sidebar){
 		var result = document.createElement('div');
 		result.className = 'sidebar';
-		if(sidebar.side === 'left'){
-			result.classList.add('leftBar');
-		}else if(sidebar.side === 'right'){
+		if(sidebar.side === 'right'){
 			result.classList.add('rightBar');
 		}
 		if(sidebar.visible){
@@ -116,12 +114,6 @@
 		},
 		resize: function(){
 			var scale = this.player.height / this.headList.clientWidth;
-			this.headList.style.transform = "";
-			if(scale < 1){
-				this.headList.style.transform = "scale("+scale+") rotateZ(90deg) translateY(20px) translateX("+(-20/scale)+"px)";
-			}else{
-				this.headList.style.transform = "rotateZ(90deg) translateY(20px) translateX(-20px)";
-			}
 		},
 		restore: function(){
 			if(this.baseVisible){

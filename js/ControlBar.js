@@ -24,7 +24,7 @@
 	function ControlBar(args) {
 		var ayamelPlayer = args.ayamelPlayer,
 			control_timeout = 0,
-			controlLists = args.components || {left:["play", "volume", "captions", "annotations"], right:["rate", "fullScreen", "timeCode"]},
+			controlLists = args.components || {left:["play", "volume", "captions", "annotations"], right:["rate", "fullScreen", "sideToggle", "timeCode"]},
 			components = {}, progressBar, timeCode,
 			currentTime = 0, duration = 0,
 			element = document.createElement('div');
@@ -74,11 +74,8 @@
 
 		function hideControls(){
 			if(control_timeout){ clearTimeout(control_timeout); }
-			if(!ayamelPlayer.isFullScreen){
-				element.style.opacity = 1;
-				control_timeout = 0;
-				return;
-			}
+			element.style.opacity = 1;
+			control_timeout = 0;
 			control_timeout = setTimeout(function(){
 				element.style.opacity = 0;
 			}, 2000);

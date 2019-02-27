@@ -204,16 +204,15 @@
 			});
 		}
 
-		this.leftBar = null;
-		if(tabs.left instanceof Array){
-			//Create the left sidebar
-			this.leftBar = new Ayamel.classes.Sidebar({
-				holder: topPane,
-				player: this,
-				side: 'left',
-				tabs: tabs.left
-			});
-		}
+		var sidebar = this.rightBar;
+		// Show or hide the sidebar
+		this.addEventListener("showSidebar", function(e){
+			if (sidebar.visible) {
+				sidebar.hide();
+			} else {
+				sidebar.show(sidebar.selectedTab);
+			}
+		})
 
 		// set up event track handling
 		this.cachedValues = {
@@ -399,6 +398,8 @@
 					element.dispatchEvent(new CustomEvent('exitfullscreen',{bubbles:true}));
 				}
 			},false);
+
+			
 		});
 
 		this.then = readyPromise.then.bind(readyPromise);
