@@ -72,17 +72,16 @@ class YouTubePlayer {
 							autoplay: 1,
 							cc_load_policy: 0,
 							controls: 0,
-							disablekb: 1,
+							disablekb: 0,
 							enablejsapi: 1,
-							start: startTime,
 							end: endTime === -1 ? void 0 : endTime,
+							fs: 0,
 							iv_load_policy: 3,
 							modestbranding: 1,
 							origin: location.origin,
 							playsinline: 1,
-							rel: 0,
-							showinfo: 0,
-							fs: 0
+							start: startTime,
+							rel: 0
 						},
 						events: {
 							onReady: function (event) {
@@ -293,7 +292,8 @@ YouTubePlayer.prototype.features = {
 		seek: true,
 		rate: true,
 		timeCode: true,
-		volume: true
+		volume: true,
+        sideToggle: true
 	},
 	mobile: {
 		captions: true,
@@ -304,7 +304,8 @@ YouTubePlayer.prototype.features = {
 		seek: true,
 		rate: true,
 		timeCode: true,
-		volume: false
+		volume: false,
+        sidetoggle: true
 	}
 };
 

@@ -109,7 +109,8 @@
 			seek: false,
 			rate: false,
 			timeCode: false,
-			volume: false
+			volume: false,
+			sideToggle: true
 		},
 		mobile: {
 			captions: true,
@@ -120,7 +121,8 @@
 			seek: false,
 			rate: false,
 			timeCode: false,
-			volume: false
+			volume: false,
+			sideToggle: true
 		}
 	};
 

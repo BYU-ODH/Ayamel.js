@@ -3,7 +3,7 @@ import { CustomEvent } from "../CustomEvent"
 
 var template =
     '<div class="control button captions">\
-        <div class="icon" title="Caption Menu"></div>\
+        <div title="Caption Menu"></div>\
         <div class="menu">\
             <div class="menuTipDark"></div>\
             <div class="menuTip"></div>\

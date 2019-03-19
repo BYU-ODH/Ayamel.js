@@ -177,7 +177,8 @@
 			seek: true,
 			rate: true,
 			timeCode: true,
-			volume: true
+			volume: true,
+			sideToggle: true
 		},
 		mobile: {
 			captions: true,
@@ -188,7 +189,8 @@
 			seek: true,
 			rate: false,
 			timeCode: true,
-			volume: false
+			volume: false,
+			sideToggle: true
 		}
 	};
 
