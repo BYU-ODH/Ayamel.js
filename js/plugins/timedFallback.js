@@ -1,119 +1,123 @@
-(function(Ayamel) {
-	"use strict";
+import { Ayamel } from "../Ayamel"
 
-	var template = '<div class="videoBox" style="color:white;text-align:center;">\
-		<h3>This resource could not be played on your current machine & browser.</h3></div>';
+var template = '<div class="videoBox" style="color:white;text-align:center;">\
+    <h3>This resource could not be played on your current machine & browser.</h3></div>';
 
-	function FallbackPlayer(args) {
-		var element = Ayamel.utils.parseHTML(template);
+function FallbackPlayer(args) {
+    var element = Ayamel.utils.parseHTML(template);
 
-		this.resource = args.resource;
+    this.resource = args.resource;
 
-		// Create the element
-		this.element = element;
-		args.holder.appendChild(element);
+    // Create the element
+    this.element = element;
+    args.holder.appendChild(element);
 
-		Object.defineProperties(this, {
-			duration: {
-				get: function(){ return 0; }
-			},
-			currentTime: {
-				get: function(){ return 0; },
-				set: function(time){ return 0; }
-			},
-			muted: {
-				get: function(){ return true; },
-				set: function(muted){ return true; }
-			},
-			paused: {
-				get: function(){ return true; }
-			},
-			playbackRate: {
-				get: function(){ return 1; },
-				set: function(playbackRate){ return 1; }
-			},
-			readyState: {
-				get: function(){ return 0; }
-			},
-			volume: {
-				get: function(){ return 100; },
-				set: function(volume){ return 100; }
-			},
-			height: {
-				get: function(){ return element.clientHeight; },
-				set: function(h){
-					h = +h || element.clientHeight;
-					element.style.height = h + "px";
-					return h;
-				}
-			},
-			width: {
-				get: function(){ return element.clientWidth; },
-				set: function(w){
-					w = +w || element.clientWidth;
-					element.style.width = w + "px";
-					return w;
-				}
-			}
-		});
-	}
+    Object.defineProperties(this, {
+        duration: {
+            get: function(){ return 0; }
+        },
+        currentTime: {
+            get: function(){ return 0; },
+            set: function(time){ return 0; }
+        },
+        muted: {
+            get: function(){ return true; },
+            set: function(muted){ return true; }
+        },
+        paused: {
+            get: function(){ return true; }
+        },
+        playbackRate: {
+            get: function(){ return 1; },
+            set: function(playbackRate){ return 1; }
+        },
+        readyState: {
+            get: function(){ return 0; }
+        },
+        volume: {
+            get: function(){ return 100; },
+            set: function(volume){ return 100; }
+        },
+        height: {
+            get: function(){ return element.clientHeight; },
+            set: function(h){
+                h = +h || element.clientHeight;
+                element.style.height = h + "px";
+                return h;
+            }
+        },
+        width: {
+            get: function(){ return element.clientWidth; },
+            set: function(w){
+                w = +w || element.clientWidth;
+                element.style.width = w + "px";
+                return w;
+            }
+        }
+    });
+}
 
-	FallbackPlayer.prototype.play = function(){};
-	FallbackPlayer.prototype.pause = function(){};
+FallbackPlayer.prototype.play = function(){};
+FallbackPlayer.prototype.pause = function(){};
 
-	FallbackPlayer.prototype.enterFullScreen = function(availableHeight){
-		this.normalHeight = this.element.clientHeight;
-		this.element.style.height = availableHeight + 'px';
-	};
+FallbackPlayer.prototype.enterFullScreen = function(availableHeight){
+    this.normalHeight = this.element.clientHeight;
+    this.element.style.height = availableHeight + 'px';
+};
 
-	FallbackPlayer.prototype.exitFullScreen = function(){
-		this.element.style.height = this.normalHeight + 'px';
-	};
+FallbackPlayer.prototype.exitFullScreen = function(){
+    this.element.style.height = this.normalHeight + 'px';
+};
 
-	FallbackPlayer.prototype.addEventListener = function(name, handler, capture){
-		this.element.addEventListener(name, handler, !!capture);
-	};
+FallbackPlayer.prototype.addEventListener = function(name, handler, capture){
+    this.element.addEventListener(name, handler, !!capture);
+};
 
-	FallbackPlayer.prototype.removeEventListener = function(name, handler, capture){
-		this.element.removeEventListener(name, handler, !!capture);
-	};
+FallbackPlayer.prototype.removeEventListener = function(name, handler, capture){
+    this.element.removeEventListener(name, handler, !!capture);
+};
 
-	FallbackPlayer.prototype.features = {
-		desktop: {
-			captions: true,
-			annotations: true,
-			fullScreen: true,
-			lastCaption: true,
-			play: true,
-			seek: true,
-			rate: true,
-			timeCode: true,
-			volume: true,
-			sideToggle: true
-		},
-		mobile: {
-			captions: true,
-			annotations: true,
-			fullScreen: true,
-			lastCaption: true,
-			play: true,
-			seek: true,
-			rate: false,
-			timeCode: true,
-			volume: false,
-			sideToggle: true
-		}
-	};
+FallbackPlayer.prototype.features = {
+    desktop: {
+        captions: true,
+        annotations: true,
+        fullScreen: true,
+        lastCaption: true,
+        play: true,
+        seek: true,
+        rate: true,
+        timeCode: true,
+        volume: true,
+        sideToggle: true
+    },
+    mobile: {
+        captions: true,
+        annotations: true,
+        fullScreen: true,
+        lastCaption: true,
+        play: true,
+        seek: true,
+        rate: false,
+        timeCode: true,
+        volume: false,
+        sideToggle: true
+    }
+};
 
-	var obj = {
-		install: function(args){
-			return new FallbackPlayer(args);
-		},
-		supports: function(args){
-			return (args.resource.type === "video" || args.resource.type === "audio");
-		}
-	};
-	Ayamel.mediaPlugins.fallbacks.video = obj;
-	Ayamel.mediaPlugins.fallbacks.audio = obj;
 
-}(Ayamel));
+const plugin = {
+    install: function(args){
+        return new FallbackPlayer(args);
+    },
+    supports: function(args){
+        return (args.resource.type === "video" || args.resource.type === "audio");
+    }
+}
+
+export default {
+    register: function(ayamel) {
+        ayamel.mediaPlugins.fallbacks.video = obj;
+        ayamel.mediaPlugins.fallbacks.audio = obj;
+    }
+};
+
