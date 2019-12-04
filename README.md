@@ -5,6 +5,7 @@ Client-side services and display elements for the Flagship Media Library interfa
 Scripts, purposes, and usage.
 
 Table of Contents:
+ + [Build](#build)
  + [actor.js](#actor)
  + [annotator.js](#annotator)
  + [async.js](#async)
@@ -38,7 +39,7 @@ Used for annotating stuff. You can call it with one of the following:
 ```javascript
 Annotator.HTML(config, content);
 ```
-    
+
 Annotates HTML.
 
 Parameter | Type | Description
@@ -51,7 +52,7 @@ content | DOM Element? | The content to annotate
 ```javascript
 Annotator.Text(config, content);
 ```
-    
+
 Annotates text.
 
 Parameter | Type | Description
@@ -109,7 +110,7 @@ This defines a bunch of components that can be added to the control bar. You sho
 
 **Used by:**
  + `ControlBar.js`
- 
+
 ## <a name="h5Clip"></a>h5Clip.js
 This script defines the video player installer which can be used to support HTML5 video.
 
@@ -123,7 +124,7 @@ To use the installer, do one of the following:
 Ayamel.AddVideoPlayer(h5PlayerInstall, priority, callback);
 Ayamel.InstallVideoPlayers([h5PlayerInstall, ...], callback)
 ```
-    
+
 For a description of these functions, see `video.js`
 
 ## <a name="languageModules"></a>language_modules.js
@@ -227,9 +228,9 @@ callback | function | A callback function
 ```javascript
 Ayamel.InstallVideoPlayers(installers, callback)
 ```
-    
+
 Installs multiple video players.
-    
+
 Parameter | Type | Description
 --- | ---| ---
 installers | Array of player installers | The list of video players to install. The order is the priority.
@@ -249,7 +250,7 @@ To create a video player, do the following:
 ```javascript
 var player = Ayamel.VideoPlayer(parameters);
 ```
-    
+
 Creates a video player on the page.
 
 `parameters` is an object. The following are valid within it:
@@ -282,5 +283,26 @@ To use the installer, do one of the following:
 Ayamel.AddVideoPlayer(ytPlayerInstall, priority, callback);
 Ayamel.InstallVideoPlayers([ytPlayerInstall, ...], callback)
 ```
-    
+
 For a description of these functions, see `video.js`
+
+## <a name="build"></a>Build
+ + Build
+
+```bash
+npm run compile && npm pack
+```
+
+You need to run `npm run compile` before packaging in order to compile and minify the es6 files in the js dir.
+The newly created compiled files will be put in the /lib directory. These files are included in the created package.
+
+## <a name="publish"></a>Publish
+ + Publish
+
+```bash
+npm login
+npm run compile && npm publish
+```
+
+The `npm login` command will prompt you for an [npmjs.com](https://npmjs.com) username, password and corresponding email.
+
