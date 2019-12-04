@@ -1,4 +1,4 @@
-# Ayamel.js
+# yvideojs
 
 Client-side services and display elements for the Flagship Media Library interface.
 
@@ -6,6 +6,7 @@ Scripts, purposes, and usage.
 
 Table of Contents:
  + [Build](#build)
+ + [Publish](#publish)
  + [actor.js](#actor)
  + [annotator.js](#annotator)
  + [async.js](#async)
@@ -287,22 +288,21 @@ Ayamel.InstallVideoPlayers([ytPlayerInstall, ...], callback)
 For a description of these functions, see `video.js`
 
 ## <a name="build"></a>Build
- + Build
 
 ```bash
 npm run compile && npm pack
 ```
 
-You need to run `npm run compile` before packaging in order to compile and minify the es6 files in the js dir.
-The newly created compiled files will be put in the /lib directory. These files are included in the created package.
+You need to run `npm run compile` before packaging in order to compile and minify the es6 files in `js/`.
+The newly created compiled files will be put in a new folder called `lib/`. These files are included in the created package.
 
 ## <a name="publish"></a>Publish
- + Publish
 
 ```bash
 npm login
 npm run compile && npm publish
 ```
 
+This package is published to [npmjs.com/yvideojs](https://npmjs.com/yvideojs).
 The `npm login` command will prompt you for an [npmjs.com](https://npmjs.com) username, password and corresponding email.
 
